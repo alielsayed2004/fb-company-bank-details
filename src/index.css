@@ -1,24 +1,8 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   LAMA SANS FONT FAMILY (@font-face definitions for all weights)
+   LAMA SANS FONT FAMILY (@font-face definitions for all active weights)
    ========================================================================== */
-
-@font-face {
-  font-family: 'Lama Sans';
-  src: url('/Fonts/LamaSans-Thin.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Lama Sans';
-  src: url('/Fonts/LamaSans-ExtraLight.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
 
 @font-face {
   font-family: 'Lama Sans';
