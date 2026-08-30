@@ -19,7 +19,7 @@ export const OFFICIAL_BANK_ACCOUNTS: BankAccount[] = [
     bankShortName: 'QNB',
     accountNameEnglish: 'F AND B FOR ASSETS MANAGEMENT',
     accountNameArabic: 'شركة إف آند بي لإدارة الأصول العقارية',
-    accountNumber: '00176-20319319586-44',
+    accountNumber: '20319319586',
     iban: 'EG810037017608182031931958644',
     swift: 'QNBAEGCXXXX',
     branchCode: '00176',
