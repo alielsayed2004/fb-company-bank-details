@@ -83,6 +83,52 @@ export const OFFICIAL_BANK_ACCOUNTS: BankAccount[] = [
   }
 ];
 
+export interface SheetLink {
+  id: string;
+  title: string;
+  url?: string;
+  isActive: boolean;
+}
+
+export const SHEET_LINKS: SheetLink[] = [
+  {
+    id: 'attendance',
+    title: 'حضور وانصراف العاشر',
+    url: 'https://docs.google.com/spreadsheets/d/1JWTObtB2cvfjvUyjJzC_I3WCNgU-yS5gsONc4brRQkw/edit?usp=sharing',
+    isActive: true,
+  },
+  {
+    id: 'consultations',
+    title: 'استشارات من الموقع',
+    url: 'https://docs.google.com/spreadsheets/d/1v9YdbP1nFwJ2Ki4cjBVxoopfJwNhsUwaeNu9fJBWDpo/edit?usp=sharing',
+    isActive: true,
+  },
+  {
+    id: 'hiring-applications',
+    title: 'F.B Company - Hiring Applications',
+    url: 'https://docs.google.com/spreadsheets/d/1QtmdixDc2MjIH-fa9QKz_BdG85BiKSkZBdI6bhPo6-0/edit?usp=sharing',
+    isActive: true,
+  },
+  {
+    id: 'leads',
+    title: 'leads',
+    url: 'https://docs.google.com/spreadsheets/d/1kKPKa-g1Ysi8Hb7HKnulyji7tsXZcfTvAiq8VfPQwFU/edit?usp=sharing',
+    isActive: true,
+  },
+  {
+    id: 'fb-data',
+    title: 'F&B_Data',
+    url: 'https://docs.google.com/spreadsheets/d/18OPWsWv-TJSvrDEc9bjAi59Sxfa7GxmgTyTvnonMJV0/edit?usp=sharing',
+    isActive: true,
+  },
+  {
+    id: 'brand-qualification',
+    title: 'Brand Qualification',
+    url: 'https://docs.google.com/spreadsheets/d/1Qj9i9GEzaQ_XQP6B_ZAxeMjgjAtB8DXqJzmdM0hyMxc/edit?usp=sharing',
+    isActive: true,
+  },
+];
+
 export const BRAND_COLORS = {
   primary: '#003B3C',
   primaryHover: '#002C2D',

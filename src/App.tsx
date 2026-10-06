@@ -7,6 +7,7 @@ import { SecurityNotice } from './components/SecurityNotice';
 import { Footer } from './components/Footer';
 import { ShareModal } from './components/ShareModal';
 import { Toast } from './components/Toast';
+import { SheetsDirectory } from './components/SheetsDirectory';
 import { BankAccount, ToastMessage } from './types/bank';
 import { OFFICIAL_BANK_ACCOUNTS, UI_STRINGS } from './lib/constants';
 
@@ -19,12 +20,13 @@ export default function App() {
   );
   const [toast, setToast] = useState<ToastMessage | null>(null);
   const [isShareModalOpen, setIsShareModalOpen] = useState<boolean>(false);
+  const [currentView, setCurrentView] = useState<'bank' | 'sheets'>('bank');
 
   // Set document language, LTR direction and English title
   useEffect(() => {
     document.documentElement.lang = 'en';
     document.documentElement.dir = 'ltr';
-    document.title = 'Official Bank Details | F.B Company — Assets Management';
+    document.title = 'Official Portal | F.B Company';
   }, []);
 
   // Fetch accounts from API with fallback to built-in verified constant
@@ -68,35 +70,45 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FDFDFD] text-slate-900 selection:bg-[#003B3C]/15 selection:text-[#003B3C] font-sans antialiased">
-      {/* Header with Monogram & Share Button */}
-      <Header onOpenShare={() => setIsShareModalOpen(true)} />
+      {/* Header with Monogram, Nav & Share Button */}
+      <Header 
+        onOpenShare={() => setIsShareModalOpen(true)} 
+        currentView={currentView}
+        onViewChange={setCurrentView}
+      />
 
       {/* Main Container */}
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6">
-        {/* Institutional Identity */}
-        <CompanyIdentity lang={lang} />
+        {currentView === 'bank' ? (
+          <>
+            {/* Institutional Identity */}
+            <CompanyIdentity lang={lang} />
 
-        {/* Bank Account Selector Tabs / Cards */}
-        {accounts.length > 1 && (
-          <BankSelector
-            accounts={accounts}
-            selectedAccountId={selectedAccountId}
-            onSelectAccount={setSelectedAccountId}
-            lang={lang}
-          />
+            {/* Bank Account Selector Tabs / Cards */}
+            {accounts.length > 1 && (
+              <BankSelector
+                accounts={accounts}
+                selectedAccountId={selectedAccountId}
+                onSelectAccount={setSelectedAccountId}
+                lang={lang}
+              />
+            )}
+
+            {/* Selected Bank Details Card */}
+            {selectedAccount && (
+              <BankDetailsCard
+                account={selectedAccount}
+                lang={lang}
+                onCopySuccess={handleCopySuccess}
+              />
+            )}
+
+            {/* Security & Inbound Transfer Notice */}
+            <SecurityNotice lang={lang} />
+          </>
+        ) : (
+          <SheetsDirectory />
         )}
-
-        {/* Selected Bank Details Card */}
-        {selectedAccount && (
-          <BankDetailsCard
-            account={selectedAccount}
-            lang={lang}
-            onCopySuccess={handleCopySuccess}
-          />
-        )}
-
-        {/* Security & Inbound Transfer Notice */}
-        <SecurityNotice lang={lang} />
       </main>
 
       {/* Institutional Minimal Footer */}
