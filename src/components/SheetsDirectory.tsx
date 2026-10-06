@@ -162,11 +162,11 @@ export const SheetsDirectory: React.FC = () => {
                 </div>
               </form>
             ) : (
-              <div className="flex justify-between items-center pr-3">
-                <div className="flex flex-col gap-1.5">
-                  <h3 className="text-[17px] font-bold text-[#1f2937]">{link.title}</h3>
+              <div className="flex justify-between items-center pr-3 gap-3">
+                <div className="flex flex-col gap-1.5 flex-1 min-w-0">
+                  <h3 className="text-[17px] font-bold text-[#1f2937] truncate">{link.title}</h3>
                   {link.isActive ? (
-                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#52B788] hover:text-[#40916c] hover:underline flex items-center gap-1 font-medium transition-colors" dir="ltr">
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#52B788] hover:text-[#40916c] hover:underline font-medium transition-colors break-all line-clamp-2 text-left" dir="ltr">
                       {link.url}
                     </a>
                   ) : (
